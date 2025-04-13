@@ -1,3 +1,53 @@
+# Campus Bridge
+
+## Selected Domain
+Web Development
+
+## Problem Statement / Use Case
+“Campus Bridge – Integrated Academic LMS + Coding Skill Development Platform”
+
+## Abstract / Problem Description
+Campus Bridge is a unified web platform designed to streamline both academic management and coding skill development for university students. It serves as an all-in-one solution for accessing course content, managing attendance, completing assignments, and tracking academic progress, while also providing structured coding paths and a built-in compiler to help students improve their programming skills. The platform includes interfaces for students, faculty, and administrators to ensure a seamless academic and technical learning experience. Campus Bridge aims to bridge the gap between college education and industry readiness by fostering continuous learning, coding practice, and progress tracking.
+
+## Tech Stack Used
+- **Frontend:** Next.js, Tailwind CSS, TypeScript
+- **Backend:** Next.js API Routes
+- **Database:** PostgreSQL
+- **ORM:** Prisma
+- **Authentication:** NextAuth.js
+- **Compiler Integration:** Judge0 API
+- **Deployment:** Vercel
+
+## Project Explanation
+
+Campus Bridge includes the following core modules:
+
+### 🔹 Student Interface
+- View and manage academic content: lecture slides, videos, notes
+- Track attendance and assignment submissions
+- Enroll in structured coding tracks (e.g., DSA, Python, Web Development)
+- Practice problems using an integrated code editor with a compiler (supports C, C++, Java, Python, etc.)
+- View performance stats such as streaks, badges, and heatmaps
+
+### 🔹 Faculty & Trainer Panel
+- Upload course materials (PDFs, videos)
+- Create assignments and coding questions with custom test cases
+- Monitor student academic and coding performance via dashboards
+
+### 🔹 Admin / Placement Panel
+- Access skill dashboards and coding leaderboards
+- Schedule mock tests and coding contests
+- Export academic and coding progress reports
+
+## Screenshots
+
+> 📸 Screenshots showcasing:
+- Student dashboard and coding interface
+- Course and attendance view
+- Assignment submission panel
+- Compiler integration and output view
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
