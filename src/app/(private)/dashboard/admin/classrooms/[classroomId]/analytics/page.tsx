@@ -1,3 +1,7 @@
 export default function AnalyticsPage() {
-  return <div>Analytics Page Content</div>;
+  return (
+    <div className="p-16 size-full">
+      <h1 className="text-3xl font-poppins font-semibold">Analytics Page</h1>
+    </div>
+  )
 }

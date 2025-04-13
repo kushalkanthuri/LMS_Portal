@@ -1,8 +1,7 @@
 export default function FacultyDashboard() {
     return (
-      <div>
-        <h1>Faculty Dashboard</h1>
-        {/* Add your faculty dashboard content here */}
+      <div className="p-16 size-full">
+        <h1 className="text-3xl font-poppins font-semibold">Dashboard Page</h1>
       </div>
     )
 }

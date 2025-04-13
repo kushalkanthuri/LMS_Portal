@@ -1,7 +1,7 @@
 export default function PortalPage() {
-    return (
-        <div>
-            <h1>Portal</h1>
-        </div>
-    )
+  return (
+    <div className="p-16 size-full">
+      <h1 className="text-3xl font-poppins font-semibold">Portal Page</h1>
+    </div>
+  )
 }
