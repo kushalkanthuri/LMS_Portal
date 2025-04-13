@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  admin
+  faculty
+  student
+}
+
+model Users {
+  id              String            @id @default(cuid())
+  email           String            @unique
+  password        String
+  name            String
+  role            UserRole
+  Classrooms      Classrooms?       @relation(fields: [classroomsId], references: [id])
+  classroomsId    String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  Subject         Subjects[]
+  TotalAttendance TotalAttendance[]
+
+  Attendances Attendances[] @relation("StudentAttendances")
+}
+
+model Classrooms {
+  id        String     @id @default(cuid())
+  name      String
+  students  Users[]
+  subejects Subjects[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Subjects {
+  id          String        @id @default(cuid())
+  name        String
+  classrooms  Classrooms    @relation(fields: [classroomId], references: [id])
+  classroomId String
+  faculty     Users         @relation(fields: [facultyId], references: [id])
+  facultyId   String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  Attendances Attendances[] @relation("SubjectAttendances")
+}
+
+model Attendances {
+  id        String   @id @default(cuid())
+  student   Users    @relation("StudentAttendances", fields: [studentId], references: [id])
+  studentId String
+  subject   Subjects @relation("SubjectAttendances", fields: [subjectId], references: [id])
+  subjectId String
+  date      String
+  isPresent Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([studentId, subjectId, date])
+}
+
+model TotalAttendance {
+  student         Users    @relation(fields: [studentId], references: [id])
+  studentId       String   @id
+  totalClasses    Int      @default(0)
+  classesAttended Int      @default(0)
+  totalPercentage Float    @default(0.0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
