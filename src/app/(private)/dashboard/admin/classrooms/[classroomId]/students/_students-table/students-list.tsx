@@ -65,7 +65,7 @@ export default function StudentsList({
 
   return (
     <>
-      <div className="size-full flex flex-col gap-6 px-4">
+      <div className="flex-1 flex flex-col gap-6 px-4 overflow-y-auto py-1">
         <Input
           placeholder="Search users..."
           value={search}
@@ -73,7 +73,7 @@ export default function StudentsList({
           disabled={isSaving}
         />
         {list.length !== 0 ? (
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 h-full overflow-y-auto">
             {list.map((user) => (
               <Label
                 key={user.id}
@@ -96,7 +96,7 @@ export default function StudentsList({
           </div>
         )}
       </div>
-      <SheetFooter className="gap-4">
+      <SheetFooter className="gap-4 ">
         <Button isLoading={isSaving} onClick={handleSave}>
           Save
         </Button>

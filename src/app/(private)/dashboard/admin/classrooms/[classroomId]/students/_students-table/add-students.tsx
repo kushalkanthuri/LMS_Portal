@@ -45,7 +45,7 @@ export default function AddStudents() {
           <Plus strokeWidth={3} /> Add
         </Button>
       </SheetTrigger>
-      <SheetContent side="right">
+      <SheetContent side="right" className="overflow-hidden flex flex-col size-full">
         <SheetHeader>
           <SheetTitle>Add Students</SheetTitle>
           <SheetDescription>

@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/db";
 import type { CreateClassroomSchema } from "@/lib/validators";
 import type { Classrooms } from "@prisma/client";
+import { revalidatePath } from "next/cache";
 
 export async function getClassrooms(): ActionOutput<{
   classrooms: Classrooms[]
@@ -60,11 +61,14 @@ export async function createClassroom(
   try {
     const classroom = await prisma.classrooms.create({
       data,
-    });
+    })
+
+    revalidatePath("/dashboard/admin/classrooms")
+
     return {
       success: true,
       classroom,
-    };
+    }
   } catch (error) {
     return {
       success: false,
